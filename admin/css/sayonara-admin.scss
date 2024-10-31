@@ -1,0 +1,346 @@
+// Styles for Sayonara Admin pages
+
+// brand colors
+
+$pink: #fcc9b9;
+$yellow: #f6a500;
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 600px;
+
+// Small tablets (portrait view)
+$screen-md-min: 782px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+// Small devices only
+@mixin so {
+  @media (max-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Medium devices down
+@mixin mo {
+  @media (max-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+// Custom devices
+@mixin rwd($screen) {
+  @media (min-width: $screen+'px') {
+    @content;
+  }
+}
+
+// Metabox sizing
+@mixin meta {
+  @media (max-width: 550px), only screen and (min-width: 851px) and (max-width: 1025px) {
+    @content;
+  }
+}
+
+// Dashboard styling
+@mixin dash {
+  @media (max-width: 1400px) {
+    @content;
+  }
+}
+
+// Style our admin pages
+.post-type-sayonara {
+
+}
+
+// Style the blank slate screen
+
+.sayonara-blank-slate {
+
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 1px 1px rgba(0,0,0,.04);
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+
+  .sayonara-blank-slate-image {
+    display: block;
+    height: 80px !important;
+    margin: 0 auto 10px;
+    width: auto;
+  }
+
+  .sayonara-blank-slate-heading {
+    margin: 0 0 10px;
+  }
+
+  .sayonara-blank-slate-cta {
+    display: inline-block;
+    font-size: 1.2em;
+    height: auto;
+    margin: 0 0 10px;
+    padding: .75em 1.5em;
+  }
+
+  .sayonara-blank-slate-help {
+    color: #666;
+    font-style: italic;
+  }
+}
+
+// Style the main metabox
+
+#sayonara_primary .inside {
+  margin: 0;
+  padding: 0;
+}
+
+.postbox .sayonara-metabox-panel-wrap {
+  background: #fff;
+  overflow: hidden;
+}
+
+.postbox .sayonara-metabox-tabs {
+
+  margin: 0;
+  max-width: 170px;
+  float: left;
+  line-height: 1em;
+  padding: 0 0 10px;
+  position: relative;
+  background-color: #fafafa;
+  border-right: 1px solid #eee;
+  box-sizing: border-box;
+
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 9999em;
+    position: absolute;
+    bottom: -9999em;
+    left: 0;
+    background-color: #fafafa;
+    border-right: 1px solid #eee;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+
+    .sayonara-icon {
+
+      svg {
+        vertical-align: middle;
+        margin-right: 10px;
+
+        path, rect, line {
+          fill: $yellow;
+        }
+
+        @include meta {
+
+          margin-right: 0px;
+        }
+      }
+
+      @include meta {
+
+        &:before {
+
+          margin: 0;
+        }
+      }
+    }
+
+    a {
+      margin: 0;
+      padding: 10px;
+      display: block;
+      box-shadow: none;
+      text-decoration: none;
+      line-height: 20px !important;
+      border-bottom: 1px solid #eee;
+      overflow: hidden;
+
+      @include meta {
+
+        text-align: center;
+
+        &:before {
+
+          margin-right: 0;
+          font-size: 15px;
+        }
+      }
+
+      span.sayonara-label {
+        width: 114px;
+        display: inline-block;
+
+        @include meta {
+
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include meta {
+
+    min-width: 40px;
+  }
+
+}
+
+// Style links to our documentation
+
+.sayonara-docs-link {
+  text-align: right;
+  margin-right: 15px;
+
+  a {
+    color: #606060;
+    text-decoration: none;
+    font-style: italic;
+
+    span {
+      font-style: normal;
+    }
+  }
+}
+
+.postbox .sayonara_options_panel {
+
+  padding-left: 170px;
+
+  @include meta {
+    padding-left: 40px;
+  }
+
+  .sayonara-heading {
+    margin-left: 11px;
+    margin-bottom: 0px;
+  }
+
+  .sayonara-field-wrap {
+    padding: 1em 20px 1em 162px;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+
+    @include meta {
+
+      padding: 10px;
+    }
+
+    ul {
+      margin: 0;
+    }
+
+    .sayonara-field-description {
+      color: #aaa;
+      font-size: 12px;
+      line-height: 18px;
+      display: block;
+      padding-top: 10px;
+      font-style: italic;
+    }
+
+    > span.sayonara-field-label {
+      
+      @include meta {
+
+        display: block;
+        float: none;
+        margin: 0 0 10px;
+        font-size: 14px;
+        width: 100%;
+      }
+
+      float: left;
+      width: 135px;
+      padding: 0;
+      margin: 2px 0 0 -150px;
+      line-height: 18px;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .sayonara-textarea {
+      width: 100%;
+    }
+
+    .sayonara-input-suffix {
+      border: 1px solid #ddd;
+      border-right-color: rgb(221, 221, 221);
+      border-right-style: solid;
+      border-right-width: 1px;
+      border-radius: 4px;
+      background: #fcfcfc;
+      margin-left: -5px;
+      font-size: 14px;
+      padding: 5px 8px;
+    }
+
+    input[type="email"].sayonara-field, input[type="text"].sayonara-field, input[type="number"].sayonara-field {
+      position: relative;
+    }
+
+    .sayonara-field-custom {
+      width: 155px !important;
+    }
+
+    input.sayonara-text_small {
+      width: 100px !important;
+    }
+
+    input.sayonara-text_medium {
+      width: 200px !important;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type=number] {
+      -moz-appearance:textfield;
+    }
+  }
+}
